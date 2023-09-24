@@ -6,7 +6,7 @@
 	z-index: 10;
 
 	div {
-		padding: 1.5em 0;
+		padding: 1.5rem 1.5rem;
 		width: clamp(20rem, 100%, 64rem);
 		margin: 0 auto;
 		display: flex;
@@ -51,7 +51,7 @@
 	min-height: 100vh;
 	min-height: 100svh;
 	margin: 0 auto;
-	padding-block-start: clamp(4rem, 15vh, 30rem);
+	padding-block: clamp(4rem, 15vh, 30rem);
 	padding-inline-start: 6rem;
 	opacity: 0;
 	position: relative;
@@ -131,12 +131,6 @@
 	background-position: 0% -60%;
 }
 
-@media (max-width: 500px) {
-	.fullpage {
-		padding-inline-start: 3rem;
-	}
-}
-
 // Page
 .page {
 	width: 100%;
@@ -150,20 +144,19 @@
 	overflow-y: scroll;
 	z-index: 3;
 	transition: translate 550ms ease-in-out;
-}
 
-.page::-webkit-scrollbar {
-	width: 0.5rem;
-}
+	&::-webkit-scrollbar {
+		width: 0.5rem;
+	}
 
-.page::-webkit-scrollbar-track {
-	background: transparent;
-}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
 
-.page::-webkit-scrollbar-thumb {
-	background: rgba(var(--primary-color) / 0.875);
+	&::-webkit-scrollbar-thumb {
+		background: rgba(var(--primary-color) / 0.875);
+	}
 }
-
 .page.show {
 	translate: 0 0;
 	transition-delay: 500ms;
@@ -172,7 +165,7 @@
 .page-content {
 	width: clamp(20rem, 100%, 64rem);
 	margin: 0 auto;
-	padding-inline: 0.5rem;
+	padding-inline: 1.5rem;
 }
 
 .page-content > * {
@@ -273,10 +266,7 @@
 	&::before {
 		content: '';
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+		inset: 0rem;
 		background-image: linear-gradient(
 			to right,
 			white,
@@ -450,5 +440,47 @@ footer {
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
+	}
+}
+
+@media (max-width: 42em) {
+	.links-wrapper {
+		padding-inline-start: 3rem;
+	}
+
+	#hero {
+		flex-direction: column-reverse;
+		gap: 1rem;
+
+		& > * {
+			flex: 1 1 0;
+		}
+
+		span {
+			align-self: start;
+		}
+	}
+
+	.tray {
+		& > div {
+			gap: 3rem;
+		}
+
+		.skill svg {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+
+	.things > div {
+		flex: 0 1 80%;
+	}
+
+	.sites div:last-child {
+		display: none;
+	}
+
+	.image {
+		height: 20rem;
 	}
 }
