@@ -14,38 +14,40 @@ export function Nav({
 	}
 
 	return (
-		<section className={`links-wrapper ${!isNavOpen ? 'show' : ''}`}>
-			<section className='links'>
-				<button
-					data-id='hero'
-					onClick={handleClick}
-					onMouseOver={() => handleMouseover(0)}
-				>
-					Home
-				</button>
-				<button
-					data-id='skills'
-					onClick={handleClick}
-					onMouseOver={() => handleMouseover(1)}
-				>
-					Skills
-				</button>
-				<button
-					data-id='work'
-					onClick={handleClick}
-					onMouseOver={() => handleMouseover(2)}
-				>
-					Projects
-				</button>
-				<button
-					data-id='contact'
-					onClick={handleClick}
-					onMouseOver={() => handleMouseover(3)}
-				>
-					Contact
-				</button>
+		<section className={`nav ${!isNavOpen ? 'show' : ''}`}>
+			<section className='links-wrapper'>
+				<div className='links'>
+					<button
+						data-id='hero'
+						onClick={handleClick}
+						onMouseOver={() => handleMouseover(0)}
+					>
+						Home
+					</button>
+					<button
+						data-id='skills'
+						onClick={handleClick}
+						onMouseOver={() => handleMouseover(1)}
+					>
+						Skills
+					</button>
+					<button
+						data-id='work'
+						onClick={handleClick}
+						onMouseOver={() => handleMouseover(2)}
+					>
+						Projects
+					</button>
+					<button
+						data-id='contact'
+						onClick={handleClick}
+						onMouseOver={() => handleMouseover(3)}
+					>
+						Contact
+					</button>
+				</div>
+				<section data-imageindex={index} className='backImage'></section>
 			</section>
-			<section data-imageindex={index} className='backImage'></section>
 		</section>
 	);
 }

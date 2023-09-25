@@ -3,6 +3,7 @@ import { IconBoxMultiple } from '@tabler/icons-react';
 
 import { Nav } from './components/Nav';
 import { Page } from './components/Page';
+import { Footer } from './components/Footer';
 import './styles/app.scss';
 
 function App() {
@@ -11,16 +12,18 @@ function App() {
 	function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		setIsNavOpen((pre) => !pre);
 
+		setTimeout(() => {
+			scrollTo(event);
+		}, 1000);
+	}
+
+	function scrollTo(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		const target = event.target as HTMLButtonElement;
 		const id = target.dataset.id;
-		console.log(id);
+		if (!id) return;
 
-		setTimeout(() => {
-			if (!id) return;
-
-			const ele = document.getElementById(id) as HTMLDivElement;
-			ele.scrollIntoView({ behavior: 'smooth' });
-		}, 1000);
+		const ele = document.getElementById(id) as HTMLDivElement;
+		ele.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	return (
@@ -36,7 +39,12 @@ function App() {
 				</div>
 			)}
 			<Nav handleClick={handleClick} isNavOpen={isNavOpen} />
-			<Page isNavOpen={isNavOpen} />
+			<section className={`page ${isNavOpen ? 'show' : ''}`}>
+				<section className='page-content'>
+					<Page />
+				</section>
+				<Footer handleClick={scrollTo} />
+			</section>
 		</main>
 	);
 }

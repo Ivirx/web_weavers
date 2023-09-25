@@ -15,7 +15,7 @@ export const Hero = () => {
 					laudantium asperiores sapiente consectetur, eius sint, culpa dignissimos.
 				</p>
 				<div className='button'>
-					<a href='#'>
+					<a href='https://github.com/Ivirx' target='_blank'>
 						<span>Github</span>
 						<IconBrandGithub />
 					</a>

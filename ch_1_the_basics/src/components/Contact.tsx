@@ -10,7 +10,7 @@ export const Contact = () => {
 				excepturi ipsum illo, quibusdam dolorum, placeat ducimus sed.
 			</p>
 			<div className='form'>
-				<form>
+				<form onSubmit={(event) => event.preventDefault()}>
 					<div className='form-group'>
 						<input
 							type='email'
